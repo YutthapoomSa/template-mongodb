@@ -1,37 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
 
-// @Schema({ _id: true })
-// export class UserDBWork extends Document {
-//     @Prop({
-//         type: MongooseSchema.Types.Date,
-//         required: true,
-//     })
-//     startDate: string;
-
-//     @Prop({
-//         type: MongooseSchema.Types.Date,
-//         required: true,
-//     })
-//     endDate: string;
-
-//     @Prop({
-//         type: MongooseSchema.Types.Array,
-//         required: true,
-//     })
-//     day: string[];
-
-//     @Prop({
-//         type: MongooseSchema.Types.Array,
-//         ref: 'ZoneDB',
-//     })
-//     zone: MongooseSchema.Types.ObjectId[];
-// }
-
-// export const UserDBWorkSchema = SchemaFactory.createForClass(UserDBWork);
-
-// ─────────────────────────────────────────────────────────────────────────────
-
 export enum UserDBRole {
     User = 'ผู้ใช้งาน',
     Admin = 'ผู้ดูแลระบบ',
@@ -129,9 +98,6 @@ export class UserDB extends Document {
 
     @Prop({ default: Date.now })
     createdAt: Date;
-
-    // @Prop({ type: [UserDBWorkSchema] })
-    // workList: UserDBWork[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserDB);
